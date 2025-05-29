@@ -22,7 +22,6 @@ describe('Login spec', () => {
 
     cy.intercept('GET', '/api/session', []).as('session');
 
-   
     cy.intercept('GET', '/api/user/1', {
       statusCode: 200,
       body: {
@@ -35,7 +34,6 @@ describe('Login spec', () => {
       }
     }).as('getUserById');
 
-
     cy.get('input[formControlName=email]').type("yoga@studio.com");
     cy.get('input[formControlName=password]').type("test!1234");
 
@@ -44,5 +42,12 @@ describe('Login spec', () => {
     cy.wait('@login');
 
     cy.url().should('include', '/sessions');
+
+    cy.contains('Account').click();
+
+    cy.wait('@getUserById');
+
+    cy.contains('firstName LASTNAME');
+    cy.contains('yoga@studio.com');
   });
 });

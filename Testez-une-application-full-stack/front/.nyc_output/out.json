@@ -1,6 +1,6 @@
 {
-  "/Users/balde/OC_Projects/Projet5VF/front/src/polyfills.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/polyfills.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/polyfills.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/polyfills.ts",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -13,17 +13,17 @@
       "names": [],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/polyfills.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/polyfills.ts"
       ],
       "sourcesContent": [
         "/**\n * This file includes polyfills needed by Angular and is loaded before the app.\n * You can add your own extra polyfills to this file.\n *\n * This file is divided into 2 sections:\n *   1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.\n *   2. Application imports. Files imported after ZoneJS that should be loaded before your main\n *      file.\n *\n * The current setup is for so-called \"evergreen\" browsers; the last versions of browsers that\n * automatically update themselves. This includes recent versions of Safari, Chrome (including\n * Opera), Edge on the desktop, and iOS and Chrome on mobile.\n *\n * Learn more in https://angular.io/guide/browser-support\n */\n\n/***************************************************************************************************\n * BROWSER POLYFILLS\n */\n\n/**\n * By default, zone.js will patch all possible macroTask and DomEvents\n * user can disable parts of macroTask/DomEvents patch by setting following flags\n * because those flags need to be set before `zone.js` being loaded, and webpack\n * will put import in the top of bundle, so user need to create a separate file\n * in this directory (for example: zone-flags.ts), and put the following flags\n * into that file, and then add the following code before importing zone.js.\n * import './zone-flags';\n *\n * The flags allowed in zone-flags.ts are listed here.\n *\n * The following flags will work for all browsers.\n *\n * (window as any).__Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame\n * (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick\n * (window as any).__zone_symbol__UNPATCHED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames\n *\n *  in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js\n *  with the following flag, it will bypass `zone.js` patch for IE/Edge\n *\n *  (window as any).__Zone_enable_cross_context_check = true;\n *\n */\n\n/***************************************************************************************************\n * Zone JS is required by default for Angular itself.\n */\nimport 'zone.js';  // Included with Angular CLI.\n\n\n/***************************************************************************************************\n * APPLICATION IMPORTS\n */\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "2fc2f13de1a722191696ac88fb652266c4f71975"
+    "hash": "580d482731678aff83f085cd4c6ab0e67da6d060"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/services/session.service.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/services/session.service.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/services/session.service.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/services/session.service.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -385,35 +385,35 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 54,
-      "4": 1,
-      "5": 1,
-      "6": 1,
+      "0": 17,
+      "1": 17,
+      "2": 17,
+      "3": 1418,
+      "4": 12,
+      "5": 12,
+      "6": 12,
       "7": 0,
       "8": 0,
       "9": 0,
-      "10": 1,
-      "11": 1,
-      "12": 1,
-      "13": 1,
-      "14": 1
+      "10": 12,
+      "11": 17,
+      "12": 17,
+      "13": 17,
+      "14": 17
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 54,
-      "3": 1,
+      "0": 17,
+      "1": 17,
+      "2": 1418,
+      "3": 12,
       "4": 0,
-      "5": 1,
-      "6": 1
+      "5": 12,
+      "6": 17
     },
     "b": {
       "0": [
-        1,
-        1
+        17,
+        17
       ]
     },
     "inputSourceMap": {
@@ -438,17 +438,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/services/session.service.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/services/session.service.ts"
       ],
       "sourcesContent": [
         "import { Injectable } from '@angular/core';\nimport { BehaviorSubject, Observable } from 'rxjs';\nimport { SessionInformation } from '../interfaces/sessionInformation.interface';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class SessionService {\n\n  public isLogged = false;\n  public sessionInformation: SessionInformation | undefined;\n\n  private isLoggedSubject = new BehaviorSubject<boolean>(this.isLogged);\n\n  public $isLogged(): Observable<boolean> {\n    return this.isLoggedSubject.asObservable();\n  }\n\n  public logIn(user: SessionInformation): void {\n    this.sessionInformation = user;\n    this.isLogged = true;\n    this.next();\n  }\n\n  public logOut(): void {\n    this.sessionInformation = undefined;\n    this.isLogged = false;\n    this.next();\n  }\n\n  private next(): void {\n    this.isLoggedSubject.next(this.isLogged);\n  }\n}\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "554bfe15526244e89c77c52a61a4503491b0c502"
+    "hash": "13bad306eaece87c0f39b78c51974c110dbb58de"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/services/user.service.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/services/user.service.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/services/user.service.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/services/user.service.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -702,27 +702,27 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 0,
-      "2": 0,
-      "3": 0,
+      "0": 17,
+      "1": 2,
+      "2": 2,
+      "3": 2,
       "4": 0,
-      "5": 1,
-      "6": 0,
-      "7": 1,
-      "8": 1
+      "5": 17,
+      "6": 2,
+      "7": 17,
+      "8": 17
     },
     "f": {
-      "0": 1,
-      "1": 0,
-      "2": 0,
+      "0": 17,
+      "1": 2,
+      "2": 2,
       "3": 0,
-      "4": 0
+      "4": 2
     },
     "b": {
       "0": [
-        0,
-        0
+        2,
+        2
       ]
     },
     "inputSourceMap": {
@@ -743,17 +743,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/services/user.service.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/services/user.service.ts"
       ],
       "sourcesContent": [
         "import { HttpClient } from '@angular/common/http';\nimport { Injectable } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { User } from '../interfaces/user.interface';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class UserService {\n\n  private pathService = 'api/user';\n\n  constructor(private httpClient: HttpClient) { }\n\n  public getById(id: string): Observable<User> {\n    return this.httpClient.get<User>(`${this.pathService}/${id}`);\n  }\n\n  public delete(id: string): Observable<any> {\n    return this.httpClient.delete(`${this.pathService}/${id}`);\n  }\n}\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "25e6b207731ad5275a70ac10a761ad95fa85e3f4"
+    "hash": "d8f130f702e8e0264a5017597cceca9255296200"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/components/me/me.component.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/components/me/me.component.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/components/me/me.component.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/components/me/me.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -2229,10 +2229,10 @@
       }
     },
     "s": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
+      "0": 6,
+      "1": 2,
+      "2": 2,
+      "3": 2,
       "4": 0,
       "5": 0,
       "6": 0,
@@ -2249,119 +2249,119 @@
       "17": 0,
       "18": 0,
       "19": 0,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
-      "25": 0,
-      "26": 0,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-      "32": 0,
-      "33": 0,
-      "34": 0,
-      "35": 0,
-      "36": 0,
-      "37": 0,
-      "38": 0,
-      "39": 0,
-      "40": 0,
-      "41": 0,
-      "42": 0,
-      "43": 0,
-      "44": 0,
-      "45": 0,
-      "46": 0,
-      "47": 0,
-      "48": 0,
-      "49": 0,
-      "50": 0,
-      "51": 0,
-      "52": 0,
-      "53": 0,
-      "54": 0,
-      "55": 0,
-      "56": 1,
-      "57": 0,
-      "58": 0,
-      "59": 0,
-      "60": 0,
-      "61": 0,
-      "62": 0,
+      "20": 6,
+      "21": 2,
+      "22": 2,
+      "23": 2,
+      "24": 2,
+      "25": 2,
+      "26": 2,
+      "27": 2,
+      "28": 2,
+      "29": 2,
+      "30": 2,
+      "31": 2,
+      "32": 2,
+      "33": 2,
+      "34": 2,
+      "35": 2,
+      "36": 2,
+      "37": 2,
+      "38": 2,
+      "39": 2,
+      "40": 2,
+      "41": 2,
+      "42": 6,
+      "43": 4,
+      "44": 4,
+      "45": 4,
+      "46": 4,
+      "47": 4,
+      "48": 4,
+      "49": 4,
+      "50": 4,
+      "51": 4,
+      "52": 4,
+      "53": 4,
+      "54": 4,
+      "55": 4,
+      "56": 17,
+      "57": 2,
+      "58": 2,
+      "59": 2,
+      "60": 2,
+      "61": 2,
+      "62": 2,
       "63": 0,
       "64": 0,
       "65": 0,
       "66": 0,
       "67": 0,
-      "68": 1,
-      "69": 0,
-      "70": 1,
-      "71": 0,
-      "72": 0,
-      "73": 0,
+      "68": 17,
+      "69": 2,
+      "70": 17,
+      "71": 16,
+      "72": 2,
+      "73": 2,
       "74": 0,
-      "75": 0,
-      "76": 0,
-      "77": 0,
-      "78": 0,
-      "79": 0,
-      "80": 0,
-      "81": 0,
-      "82": 0,
-      "83": 0,
-      "84": 0,
-      "85": 0,
-      "86": 0,
-      "87": 1
+      "75": 2,
+      "76": 2,
+      "77": 2,
+      "78": 2,
+      "79": 2,
+      "80": 2,
+      "81": 2,
+      "82": 2,
+      "83": 2,
+      "84": 16,
+      "85": 14,
+      "86": 14,
+      "87": 17
     },
     "f": {
-      "0": 0,
+      "0": 6,
       "1": 0,
       "2": 0,
-      "3": 0,
-      "4": 1,
-      "5": 0,
-      "6": 0,
-      "7": 0,
+      "3": 6,
+      "4": 17,
+      "5": 2,
+      "6": 2,
+      "7": 2,
       "8": 0,
       "9": 0,
       "10": 0,
-      "11": 0,
-      "12": 0,
+      "11": 2,
+      "12": 16,
       "13": 0
     },
     "b": {
       "0": [
-        0,
-        0
+        2,
+        4
       ],
       "1": [
         0,
         0
       ],
       "2": [
-        0,
-        0
+        2,
+        4
       ],
       "3": [
-        0,
-        0
+        4,
+        2
       ],
       "4": [
-        0,
-        0
+        2,
+        2
       ],
       "5": [
-        0,
-        0
+        2,
+        14
       ],
       "6": [
-        0,
-        0
+        14,
+        2
       ]
     },
     "inputSourceMap": {
@@ -2400,8 +2400,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/components/me/me.component.html",
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/components/me/me.component.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/components/me/me.component.html",
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/components/me/me.component.ts"
       ],
       "sourcesContent": [
         "<div class=\"m3\">\n  <mat-card>\n    <mat-card-title>\n      <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\n        <button mat-icon-button (click)=\"back()\">\n          <mat-icon>arrow_back</mat-icon>\n        </button>\n        <h1>User information</h1>\n      </div>\n    </mat-card-title>\n    <mat-card-content>\n      <div *ngIf=\"user\" fxLayout=\"column\" fxLayoutAlign=\"start center\">\n        <p>Name: {{ user.firstName }} {{ user.lastName | uppercase }}</p>\n        <p>Email: {{ user.email }}</p>\n        <p *ngIf=\"user.admin\" class=\"my2\">You are admin</p>\n        <div *ngIf=\"!user.admin\" fxLayout=\"column\" class=\"my2\" fxLayoutAlign=\"center center\">\n          <p>Delete my account:</p>\n          <button mat-raised-button color=\"warn\" (click)=\"delete()\">\n            <mat-icon>delete</mat-icon>\n            <span class=\"ml1\">Detail</span>\n          </button>\n        </div>\n        <div fxLayoutAlign=\"space-between center\" class=\"p2 w100\">\n\n          <p><i>Create at: </i> {{ user.createdAt | date: 'longDate'}}</p>\n          <p><i>Last update: </i> {{ user.updatedAt| date: 'longDate'}}</p>\n        </div>\n      </div>\n    </mat-card-content>\n  </mat-card>\n</div>\n",
@@ -2409,10 +2409,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "8c27781309f3fada24a9b32fbb72c323f4175961"
+    "hash": "bcd0f027a4bf23c56c48a56ebd6b5e0fdd434d2d"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/components/not-found/not-found.component.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/components/not-found/not-found.component.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/components/not-found/not-found.component.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/components/not-found/not-found.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -2654,29 +2654,29 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 0,
-      "3": 1,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 1
+      "0": 17,
+      "1": 17,
+      "2": 1,
+      "3": 17,
+      "4": 3,
+      "5": 1,
+      "6": 1,
+      "7": 1,
+      "8": 17
     },
     "f": {
-      "0": 1,
-      "1": 0,
-      "2": 0
+      "0": 17,
+      "1": 1,
+      "2": 3
     },
     "b": {
       "0": [
-        0,
-        0
+        1,
+        1
       ],
       "1": [
-        0,
-        0
+        1,
+        2
       ]
     },
     "inputSourceMap": {
@@ -2693,8 +2693,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/components/not-found/not-found.component.ts",
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/components/not-found/not-found.component.html"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/components/not-found/not-found.component.ts",
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/components/not-found/not-found.component.html"
       ],
       "sourcesContent": [
         "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-not-found',\n  templateUrl: './not-found.component.html',\n  styleUrls: ['./not-found.component.scss']\n})\nexport class NotFoundComponent {\n}\n",
@@ -2702,10 +2702,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "1dc70c8d635800f40056d8e972f0c481783c8d47"
+    "hash": "2d09f6dca04a157e324e98835475634f9c72ead7"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/guards/auth.guard.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/guards/auth.guard.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/guards/auth.guard.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/guards/auth.guard.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -2991,32 +2991,32 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
+      "0": 17,
+      "1": 12,
+      "2": 12,
+      "3": 14,
       "4": 0,
       "5": 0,
-      "6": 1,
-      "7": 1,
-      "8": 1,
-      "9": 1,
-      "10": 1
+      "6": 14,
+      "7": 17,
+      "8": 12,
+      "9": 17,
+      "10": 17
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1
+      "0": 17,
+      "1": 12,
+      "2": 14,
+      "3": 12
     },
     "b": {
       "0": [
         0,
-        1
+        14
       ],
       "1": [
-        1,
-        1
+        12,
+        12
       ]
     },
     "inputSourceMap": {
@@ -3037,17 +3037,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/guards/auth.guard.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/guards/auth.guard.ts"
       ],
       "sourcesContent": [
         "import {Injectable} from \"@angular/core\";\nimport {CanActivate, Router} from \"@angular/router\"; \nimport { SessionService } from \"../services/session.service\";\n\n@Injectable({providedIn: 'root'})\nexport class AuthGuard implements CanActivate {\n\n  constructor( \n    private router: Router,\n    private sessionService: SessionService,\n  ) {\n  }\n\n  public canActivate(): boolean {\n    if (!this.sessionService.isLogged) {\n      this.router.navigate(['login']);\n      return false;\n    }\n    return true;\n  }\n}"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "994efe3d8bd85436bf8c7f39f2449fc357c1ce4a"
+    "hash": "4078642f472b3a00c7b119e30a372cf84ab529f2"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/guards/unauth.guard.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/guards/unauth.guard.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/guards/unauth.guard.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/guards/unauth.guard.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -3333,32 +3333,32 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
+      "0": 17,
+      "1": 16,
+      "2": 16,
+      "3": 16,
       "4": 0,
       "5": 0,
-      "6": 1,
-      "7": 1,
-      "8": 1,
-      "9": 1,
-      "10": 1
+      "6": 16,
+      "7": 17,
+      "8": 16,
+      "9": 17,
+      "10": 17
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1
+      "0": 17,
+      "1": 16,
+      "2": 16,
+      "3": 16
     },
     "b": {
       "0": [
         0,
-        1
+        16
       ],
       "1": [
-        1,
-        1
+        16,
+        16
       ]
     },
     "inputSourceMap": {
@@ -3379,17 +3379,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/guards/unauth.guard.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/guards/unauth.guard.ts"
       ],
       "sourcesContent": [
         "import {Injectable} from \"@angular/core\";\nimport {CanActivate, Router} from \"@angular/router\"; \nimport { SessionService } from \"../services/session.service\";\n\n@Injectable({providedIn: 'root'})\nexport class UnauthGuard implements CanActivate {\n\n  constructor( \n    private router: Router,\n    private sessionService: SessionService,\n  ) {\n  }\n\n  public canActivate(): boolean {\n    if (this.sessionService.isLogged) {\n      this.router.navigate(['rentals']);\n      return false;\n    }\n    return true;\n  }\n}"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "d398d155b2c70b29bc957bbde1c12c1c0edca935"
+    "hash": "48744aa50fdf1f1762238d1ee79d9427c3979aca"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/app-routing.module.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/app-routing.module.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/app-routing.module.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/app-routing.module.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -3687,30 +3687,30 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1,
-      "9": 1,
-      "10": 1
+      "0": 17,
+      "1": 17,
+      "2": 17,
+      "3": 12,
+      "4": 12,
+      "5": 17,
+      "6": 17,
+      "7": 17,
+      "8": 17,
+      "9": 17,
+      "10": 17
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1
+      "0": 17,
+      "1": 17,
+      "2": 12,
+      "3": 12,
+      "4": 17,
+      "5": 17
     },
     "b": {
       "0": [
-        1,
-        1
+        17,
+        17
       ]
     },
     "inputSourceMap": {
@@ -3737,17 +3737,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/app-routing.module.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/app-routing.module.ts"
       ],
       "sourcesContent": [
         "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\nimport { MeComponent } from './components/me/me.component';\nimport { NotFoundComponent } from './components/not-found/not-found.component';\nimport { AuthGuard } from './guards/auth.guard';\nimport { UnauthGuard } from './guards/unauth.guard';\n\nconst routes: Routes = [\n  {\n    path: '',\n    canActivate: [UnauthGuard],\n    loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule)\n  },\n  {\n    path: 'sessions',\n    canActivate: [AuthGuard],\n    loadChildren: () => import('./features/sessions/sessions.module').then(m => m.SessionsModule)\n  },\n  {\n    path: 'me',\n    canActivate: [AuthGuard],\n    component: MeComponent\n  },\n  { path: '404', component: NotFoundComponent },\n  { path: '**', redirectTo: '404' }\n];\n\n@NgModule({\n  imports: [RouterModule.forRoot(routes)],\n  exports: [RouterModule]\n})\nexport class AppRoutingModule {\n}\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "a4bfd9058791c8ae900f31262456eb5ff18ffb75"
+    "hash": "8ec63f539ab3eb5180c9da28eaf38b198fcba3f3"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/services/auth.service.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/services/auth.service.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/services/auth.service.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/services/auth.service.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -4001,27 +4001,27 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 0,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1
+      "0": 17,
+      "1": 17,
+      "2": 17,
+      "3": 2,
+      "4": 14,
+      "5": 17,
+      "6": 17,
+      "7": 17,
+      "8": 17
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 0,
-      "3": 1,
-      "4": 1
+      "0": 17,
+      "1": 17,
+      "2": 2,
+      "3": 14,
+      "4": 17
     },
     "b": {
       "0": [
-        1,
-        1
+        17,
+        17
       ]
     },
     "inputSourceMap": {
@@ -4043,17 +4043,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/services/auth.service.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/services/auth.service.ts"
       ],
       "sourcesContent": [
         "import { HttpClient } from '@angular/common/http';\nimport { Injectable } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { LoginRequest } from '../interfaces/loginRequest.interface';\nimport { RegisterRequest } from '../interfaces/registerRequest.interface';\nimport { SessionInformation } from 'src/app/interfaces/sessionInformation.interface';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class AuthService {\n\n  private pathService = 'api/auth';\n\n  constructor(private httpClient: HttpClient) { }\n\n  public register(registerRequest: RegisterRequest): Observable<void> {\n    return this.httpClient.post<void>(`${this.pathService}/register`, registerRequest);\n  }\n\n  public login(loginRequest: LoginRequest): Observable<SessionInformation> {\n    return this.httpClient.post<SessionInformation>(`${this.pathService}/login`, loginRequest);\n  }\n}\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "c903a1afef0fb0988e65994f689400464cb617ea"
+    "hash": "6f9f17668ce98eb094fc7435ae97f93d84ce97dd"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/app.component.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/app.component.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/app.component.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/app.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -4937,86 +4937,86 @@
       }
     },
     "s": {
-      "0": 11,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1,
-      "9": 1,
+      "0": 628,
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12,
+      "5": 12,
+      "6": 12,
+      "7": 12,
+      "8": 12,
+      "9": 12,
       "10": 0,
       "11": 0,
       "12": 0,
-      "13": 1,
-      "14": 1,
-      "15": 45,
-      "16": 1,
-      "17": 1,
-      "18": 1,
-      "19": 1,
-      "20": 1,
-      "21": 1,
-      "22": 1,
-      "23": 1,
-      "24": 1,
-      "25": 1,
-      "26": 54,
+      "13": 12,
+      "14": 12,
+      "15": 819,
+      "16": 17,
+      "17": 17,
+      "18": 17,
+      "19": 17,
+      "20": 17,
+      "21": 17,
+      "22": 17,
+      "23": 17,
+      "24": 17,
+      "25": 17,
+      "26": 1418,
       "27": 0,
       "28": 0,
-      "29": 1,
-      "30": 1,
-      "31": 1,
-      "32": 55,
-      "33": 1,
-      "34": 1,
-      "35": 1,
-      "36": 1,
-      "37": 1,
-      "38": 1,
-      "39": 1,
-      "40": 1,
-      "41": 1,
-      "42": 1,
-      "43": 55,
-      "44": 54,
-      "45": 54,
-      "46": 54,
-      "47": 1
+      "29": 17,
+      "30": 17,
+      "31": 17,
+      "32": 1435,
+      "33": 17,
+      "34": 17,
+      "35": 17,
+      "36": 17,
+      "37": 17,
+      "38": 17,
+      "39": 17,
+      "40": 17,
+      "41": 17,
+      "42": 17,
+      "43": 1435,
+      "44": 1418,
+      "45": 1418,
+      "46": 1418,
+      "47": 17
     },
     "f": {
-      "0": 11,
+      "0": 628,
       "1": 0,
-      "2": 45,
-      "3": 1,
-      "4": 1,
-      "5": 54,
+      "2": 819,
+      "3": 17,
+      "4": 17,
+      "5": 1418,
       "6": 0,
-      "7": 1,
-      "8": 55
+      "7": 17,
+      "8": 1435
     },
     "b": {
       "0": [
-        1,
-        10
+        12,
+        616
       ],
       "1": [
-        1,
-        44
+        17,
+        802
       ],
       "2": [
-        1,
-        1
+        17,
+        17
       ],
       "3": [
-        1,
-        54
+        17,
+        1418
       ],
       "4": [
-        54,
-        1
+        1418,
+        17
       ]
     },
     "inputSourceMap": {
@@ -5042,8 +5042,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/app.component.html",
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/app.component.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/app.component.html",
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/app.component.ts"
       ],
       "sourcesContent": [
         "<div class=\"app\">\n  <mat-toolbar color=\"primary\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\n    <span>Yoga app</span>\n    <div *ngIf=\"$isLogged() | async; else notLogged\">\n      <span routerLink=\"sessions\" class=\"link\">Sessions</span>\n      <span routerLink=\"me\" class=\"link\">Account</span>\n      <span (click)=\"logout()\" class=\"link\">Logout</span>\n    </div>\n    <ng-template #notLogged>\n      <div>\n        <span routerLink=\"login\" class=\"link\">Login</span>\n        <span routerLink=\"register\" class=\"link\">Register</span>\n      </div>\n    </ng-template>\n  </mat-toolbar>\n  <div>\n    <router-outlet></router-outlet>\n  </div>\n</div>\n",
@@ -5051,10 +5051,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "be387222873adac2a555320dafb97163a24d2a1c"
+    "hash": "cc0c90706c2c3a8448beaae0dda0ec22b7d1c7fe"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/interceptors/jwt.interceptor.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/interceptors/jwt.interceptor.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/interceptors/jwt.interceptor.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/interceptors/jwt.interceptor.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -5320,30 +5320,30 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 2,
-      "3": 1,
-      "4": 2,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1
+      "0": 17,
+      "1": 14,
+      "2": 50,
+      "3": 34,
+      "4": 50,
+      "5": 17,
+      "6": 14,
+      "7": 17,
+      "8": 17
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 2,
-      "3": 1
+      "0": 17,
+      "1": 14,
+      "2": 50,
+      "3": 14
     },
     "b": {
       "0": [
-        1,
-        1
+        34,
+        16
       ],
       "1": [
-        1,
-        1
+        14,
+        14
       ]
     },
     "inputSourceMap": {
@@ -5371,17 +5371,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/interceptors/jwt.interceptor.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/interceptors/jwt.interceptor.ts"
       ],
       "sourcesContent": [
         "import { HttpHandler, HttpInterceptor, HttpRequest } from \"@angular/common/http\";\nimport { Injectable } from \"@angular/core\";\nimport { SessionService } from '../services/session.service';\n\n@Injectable({ providedIn: 'root' })\nexport class JwtInterceptor implements HttpInterceptor {\n  constructor(private sessionService: SessionService) {}\n\n  public intercept(request: HttpRequest<any>, next: HttpHandler) {\n    if (this.sessionService.isLogged) {\n      request = request.clone({\n        setHeaders: {\n          Authorization: `Bearer ${this.sessionService.sessionInformation!.token}`,\n        },\n      });\n    }\n    return next.handle(request);\n  }\n}\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "2d3dbdff53bbedc88649f4522ae786e7c6f3afe1"
+    "hash": "731f7edddca6f0de20d553f1a78fc579ef780fca"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/app.module.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/app.module.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/app.module.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/app.module.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -5543,22 +5543,22 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1
+      "0": 17,
+      "1": 17,
+      "2": 17,
+      "3": 17,
+      "4": 17,
+      "5": 17,
+      "6": 17
     },
     "f": {
-      "0": 1,
-      "1": 1
+      "0": 17,
+      "1": 17
     },
     "b": {
       "0": [
-        1,
-        1
+        17,
+        17
       ]
     },
     "inputSourceMap": {
@@ -5588,17 +5588,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/app.module.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/app.module.ts"
       ],
       "sourcesContent": [
         "import { NgModule } from '@angular/core';\nimport { MatSnackBarModule } from '@angular/material/snack-bar';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { NotFoundComponent } from './components/not-found/not-found.component';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatIconModule } from '@angular/material/icon';\nimport { MatToolbarModule } from '@angular/material/toolbar';\nimport { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';\nimport { JwtInterceptor } from './interceptors/jwt.interceptor';\nimport { MatCardModule } from '@angular/material/card';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { MeComponent } from './components/me/me.component';\n\nconst materialModule = [\n  MatButtonModule,\n  MatCardModule,\n  MatIconModule,\n  MatSnackBarModule,\n  MatToolbarModule,\n]\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    NotFoundComponent,\n    MeComponent,\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule,\n    BrowserAnimationsModule, \n    FlexLayoutModule,\n    HttpClientModule,\n    ...materialModule\n  ],\n  providers: [\n    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },\n  ],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "bb2752618443e46be89426f4c30e2ba11df4ad29"
+    "hash": "f9c403f463ae0a4f5094fd33a4cf75613fede84e"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/environments/environment.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/environments/environment.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/environments/environment.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/environments/environment.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -5614,7 +5614,7 @@
     "fnMap": {},
     "branchMap": {},
     "s": {
-      "0": 1
+      "0": 17
     },
     "f": {},
     "b": {},
@@ -5628,17 +5628,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/environments/environment.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/environments/environment.ts"
       ],
       "sourcesContent": [
         "export const environment = {\n  baseUrl: 'localhost:8080/api/',\n  production: false\n};\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "a86db7b119a85934a05402a32aa881b9f0f80151"
+    "hash": "7e9634f6a85f76662f03d832be64bf1bdda2cc83"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/main.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/main.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/main.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/main.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -5746,9 +5746,9 @@
       }
     },
     "s": {
-      "0": 1,
+      "0": 17,
       "1": 0,
-      "2": 1,
+      "2": 17,
       "3": 0
     },
     "f": {
@@ -5757,7 +5757,7 @@
     "b": {
       "0": [
         0,
-        1
+        17
       ]
     },
     "inputSourceMap": {
@@ -5777,17 +5777,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/main.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/main.ts"
       ],
       "sourcesContent": [
         "import { enableProdMode } from '@angular/core';\nimport { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\n\nimport { AppModule } from './app/app.module';\nimport { environment } from './environments/environment';\n\nif (environment.production) {\n  enableProdMode();\n}\n\nplatformBrowserDynamic().bootstrapModule(AppModule)\n  .catch(err => console.error(err));\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "0747a0da3d263e4af93ea70692ea276829a5ba8b"
+    "hash": "944c46d77aeb05c2c64e7ad9827ba3a923f789a3"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/components/login/login.component.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/components/login/login.component.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/components/login/login.component.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/components/login/login.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -6821,100 +6821,100 @@
       }
     },
     "s": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1,
-      "9": 1,
-      "10": 1,
-      "11": 1,
-      "12": 1,
-      "13": 1,
-      "14": 1,
-      "15": 1,
-      "16": 0,
-      "17": 1,
-      "18": 1,
-      "19": 1,
-      "20": 43,
-      "21": 1,
-      "22": 1,
-      "23": 1,
-      "24": 1,
-      "25": 1,
-      "26": 1,
-      "27": 1,
-      "28": 1,
-      "29": 1,
-      "30": 1,
-      "31": 1,
-      "32": 1,
-      "33": 1,
-      "34": 2,
-      "35": 1,
-      "36": 1,
-      "37": 1,
-      "38": 1,
-      "39": 1,
-      "40": 1,
-      "41": 1,
-      "42": 1,
-      "43": 43,
-      "44": 42,
-      "45": 42,
-      "46": 42,
-      "47": 42,
-      "48": 42,
-      "49": 42,
-      "50": 42,
-      "51": 42,
-      "52": 42,
-      "53": 42,
-      "54": 42,
-      "55": 42,
-      "56": 1
+      "0": 6,
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "4": 17,
+      "5": 14,
+      "6": 14,
+      "7": 14,
+      "8": 14,
+      "9": 14,
+      "10": 14,
+      "11": 14,
+      "12": 14,
+      "13": 14,
+      "14": 12,
+      "15": 12,
+      "16": 2,
+      "17": 17,
+      "18": 14,
+      "19": 17,
+      "20": 586,
+      "21": 14,
+      "22": 14,
+      "23": 14,
+      "24": 14,
+      "25": 14,
+      "26": 14,
+      "27": 14,
+      "28": 14,
+      "29": 14,
+      "30": 14,
+      "31": 14,
+      "32": 14,
+      "33": 14,
+      "34": 0,
+      "35": 14,
+      "36": 14,
+      "37": 14,
+      "38": 14,
+      "39": 14,
+      "40": 14,
+      "41": 14,
+      "42": 14,
+      "43": 586,
+      "44": 572,
+      "45": 572,
+      "46": 572,
+      "47": 572,
+      "48": 572,
+      "49": 572,
+      "50": 572,
+      "51": 572,
+      "52": 572,
+      "53": 572,
+      "54": 572,
+      "55": 572,
+      "56": 17
     },
     "f": {
-      "0": 0,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 0,
-      "6": 1,
-      "7": 43,
-      "8": 1,
-      "9": 2
+      "0": 6,
+      "1": 17,
+      "2": 14,
+      "3": 14,
+      "4": 12,
+      "5": 2,
+      "6": 14,
+      "7": 586,
+      "8": 14,
+      "9": 0
     },
     "b": {
       "0": [
-        0,
-        0
+        2,
+        4
       ],
       "1": [
-        1,
-        1
+        14,
+        14
       ],
       "2": [
-        1,
-        42
+        14,
+        572
       ],
       "3": [
-        42,
-        1
+        572,
+        14
       ],
       "4": [
-        40,
-        2
+        572,
+        0
       ],
       "5": [
-        40,
-        2
+        572,
+        0
       ]
     },
     "inputSourceMap": {
@@ -6955,8 +6955,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/components/login/login.component.ts",
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/components/login/login.component.html"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/components/login/login.component.ts",
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/components/login/login.component.html"
       ],
       "sourcesContent": [
         "import { Component } from '@angular/core';\nimport { FormBuilder, Validators } from '@angular/forms';\nimport { Router } from '@angular/router';\nimport { SessionInformation } from 'src/app/interfaces/sessionInformation.interface';\nimport { SessionService } from 'src/app/services/session.service';\nimport { LoginRequest } from '../../interfaces/loginRequest.interface';\nimport { AuthService } from '../../services/auth.service';\n\n@Component({\n  selector: 'app-login',\n  templateUrl: './login.component.html',\n  styleUrls: ['./login.component.scss']\n})\nexport class LoginComponent {\n  public hide = true;\n  public onError = false;\n\n  public form = this.fb.group({\n    email: [\n      '',\n      [\n        Validators.required,\n        Validators.email\n      ]\n    ],\n    password: [\n      '',\n      [\n        Validators.required,\n        Validators.min(3)\n      ]\n    ]\n  });\n\n  constructor(private authService: AuthService,\n              private fb: FormBuilder,\n              private router: Router,\n              private sessionService: SessionService) {\n  }\n\n  public submit(): void {\n    const loginRequest = this.form.value as LoginRequest;\n    this.authService.login(loginRequest).subscribe({\n      next: (response: SessionInformation) => {\n        this.sessionService.logIn(response);\n        this.router.navigate(['/sessions']);\n      },\n      error: error => this.onError = true,\n    });\n  }\n}\n",
@@ -6964,10 +6964,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "fb02e2366b88fe74e59c492742ce0a85603ff086"
+    "hash": "03e8d9d7e6df295946c7af3bc637649021426dd1"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/components/register/register.component.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/components/register/register.component.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/components/register/register.component.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/components/register/register.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -7829,62 +7829,62 @@
       "1": 0,
       "2": 0,
       "3": 0,
-      "4": 1,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
+      "4": 17,
+      "5": 4,
+      "6": 4,
+      "7": 4,
+      "8": 4,
+      "9": 4,
+      "10": 2,
+      "11": 2,
+      "12": 2,
       "13": 0,
-      "14": 1,
-      "15": 0,
-      "16": 1,
-      "17": 0,
-      "18": 0,
-      "19": 0,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
-      "25": 0,
-      "26": 0,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-      "32": 0,
-      "33": 0,
-      "34": 0,
-      "35": 0,
-      "36": 0,
-      "37": 0,
-      "38": 0,
-      "39": 0,
-      "40": 0,
-      "41": 0,
-      "42": 0,
-      "43": 0,
-      "44": 0,
-      "45": 0,
-      "46": 0,
-      "47": 0,
-      "48": 1
+      "14": 17,
+      "15": 4,
+      "16": 17,
+      "17": 188,
+      "18": 4,
+      "19": 4,
+      "20": 4,
+      "21": 4,
+      "22": 4,
+      "23": 2,
+      "24": 4,
+      "25": 4,
+      "26": 4,
+      "27": 4,
+      "28": 4,
+      "29": 4,
+      "30": 4,
+      "31": 4,
+      "32": 4,
+      "33": 4,
+      "34": 4,
+      "35": 4,
+      "36": 4,
+      "37": 4,
+      "38": 4,
+      "39": 4,
+      "40": 4,
+      "41": 188,
+      "42": 184,
+      "43": 184,
+      "44": 184,
+      "45": 184,
+      "46": 184,
+      "47": 184,
+      "48": 17
     },
     "f": {
       "0": 0,
-      "1": 1,
-      "2": 0,
-      "3": 0,
-      "4": 0,
+      "1": 17,
+      "2": 4,
+      "3": 2,
+      "4": 2,
       "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0
+      "6": 4,
+      "7": 188,
+      "8": 2
     },
     "b": {
       "0": [
@@ -7892,16 +7892,16 @@
         0
       ],
       "1": [
-        0,
-        0
+        4,
+        4
       ],
       "2": [
-        0,
-        0
+        4,
+        184
       ],
       "3": [
-        0,
-        0
+        184,
+        4
       ]
     },
     "inputSourceMap": {
@@ -7943,8 +7943,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/components/register/register.component.ts",
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/components/register/register.component.html"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/components/register/register.component.ts",
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/components/register/register.component.html"
       ],
       "sourcesContent": [
         "import { Component } from '@angular/core';\nimport { FormBuilder, Validators } from '@angular/forms';\nimport { Router } from '@angular/router';\nimport { AuthService } from '../../services/auth.service';\nimport { RegisterRequest } from '../../interfaces/registerRequest.interface';\n\n@Component({\n  selector: 'app-register',\n  templateUrl: './register.component.html',\n  styleUrls: ['./register.component.scss']\n})\nexport class RegisterComponent {\n\n  public onError = false;\n\n  public form = this.fb.group({\n    email: [\n      '',\n      [\n        Validators.required,\n        Validators.email\n      ]\n    ],\n    firstName: [\n      '',\n      [\n        Validators.required,\n        Validators.min(3),\n        Validators.max(20)\n      ]\n    ],\n    lastName: [\n      '',\n      [\n        Validators.required,\n        Validators.min(3),\n        Validators.max(20)\n      ]\n    ],\n    password: [\n      '',\n      [\n        Validators.required,\n        Validators.min(3),\n        Validators.max(40)\n      ]\n    ]\n  });\n\n  constructor(private authService: AuthService,\n              private fb: FormBuilder,\n              private router: Router) {\n  }\n\n  public submit(): void {\n    const registerRequest = this.form.value as RegisterRequest;\n    this.authService.register(registerRequest).subscribe({\n        next: (_: void) => this.router.navigate(['/login']),\n        error: _ => this.onError = true,\n      }\n    );\n  }\n\n}\n",
@@ -7952,10 +7952,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "fec77338a2ebc2566c828d154a545cfb278f9aa9"
+    "hash": "686c538674cea177040c3aec7349fcbf913b1c29"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/auth-routing.module.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/auth-routing.module.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/auth-routing.module.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/auth-routing.module.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -8117,22 +8117,22 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1
+      "0": 17,
+      "1": 17,
+      "2": 17,
+      "3": 17,
+      "4": 17,
+      "5": 17,
+      "6": 17
     },
     "f": {
-      "0": 1,
-      "1": 1
+      "0": 17,
+      "1": 17
     },
     "b": {
       "0": [
-        1,
-        1
+        17,
+        17
       ]
     },
     "inputSourceMap": {
@@ -8151,17 +8151,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/auth-routing.module.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/auth-routing.module.ts"
       ],
       "sourcesContent": [
         "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\nimport { LoginComponent } from './components/login/login.component';\nimport { RegisterComponent } from './components/register/register.component';\n\n\nconst routes: Routes = [\n  { title: 'Login', path: 'login', component: LoginComponent },\n  { title: 'Register', path: 'register', component: RegisterComponent }\n];\n\n@NgModule({\n  imports: [RouterModule.forChild(routes)],\n  exports: [RouterModule]\n})\nexport class AuthRoutingModule { }\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "4d9669e260b91d5db5c892e52f7a9d2b8ee1cf12"
+    "hash": "a948240b553ca702c8e8df79395bfe399689cc3e"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/auth.module.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/auth.module.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/auth.module.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/auth.module.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -8323,22 +8323,22 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1
+      "0": 17,
+      "1": 17,
+      "2": 17,
+      "3": 17,
+      "4": 17,
+      "5": 17,
+      "6": 17
     },
     "f": {
-      "0": 1,
-      "1": 1
+      "0": 17,
+      "1": 17
     },
     "b": {
       "0": [
-        1,
-        1
+        17,
+        17
       ]
     },
     "inputSourceMap": {
@@ -8360,17 +8360,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/auth/auth.module.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/auth/auth.module.ts"
       ],
       "sourcesContent": [
         "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { AuthRoutingModule } from './auth-routing.module';\nimport { RegisterComponent } from './components/register/register.component';\nimport { LoginComponent } from './components/login/login.component';\nimport { MatCardModule } from '@angular/material/card';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatInputModule } from '@angular/material/input';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\nimport { MatIconModule } from '@angular/material/icon';\n\nconst materialModules = [\n  MatButtonModule,\n  MatCardModule,\n  MatFormFieldModule,\n  MatIconModule,\n  MatInputModule\n]\n\n@NgModule({\n  declarations: [\n    RegisterComponent,\n    LoginComponent\n  ],\n  imports: [\n    AuthRoutingModule,\n    CommonModule,\n    FlexLayoutModule,\n    FormsModule,\n    ReactiveFormsModule,\n    ...materialModules\n  ]\n})\nexport class AuthModule { }\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "8afb2bcf1eaf7e5f17f4344ed4a8ee72b8aed209"
+    "hash": "38e8d9766fab149fa6581392a8245ebf1afe9906"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/services/session-api.service.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/services/session-api.service.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/services/session-api.service.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/services/session-api.service.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -8794,37 +8794,37 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
+      "0": 12,
+      "1": 12,
+      "2": 12,
+      "3": 18,
+      "4": 4,
+      "5": 2,
+      "6": 2,
+      "7": 2,
       "8": 0,
       "9": 0,
-      "10": 1,
-      "11": 1,
-      "12": 1,
-      "13": 1
+      "10": 12,
+      "11": 12,
+      "12": 12,
+      "13": 12
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
+      "0": 12,
+      "1": 12,
+      "2": 18,
+      "3": 4,
+      "4": 2,
+      "5": 2,
+      "6": 2,
       "7": 0,
       "8": 0,
-      "9": 1
+      "9": 12
     },
     "b": {
       "0": [
-        1,
-        1
+        12,
+        12
       ]
     },
     "inputSourceMap": {
@@ -8854,17 +8854,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/services/session-api.service.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/services/session-api.service.ts"
       ],
       "sourcesContent": [
         "import { HttpClient } from '@angular/common/http';\nimport { Injectable } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { Session } from '../interfaces/session.interface';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class SessionApiService {\n\n  private pathService = 'api/session';\n\n  constructor(private httpClient: HttpClient) {\n  }\n\n  public all(): Observable<Session[]> {\n    return this.httpClient.get<Session[]>(this.pathService);\n  }\n\n  public detail(id: string): Observable<Session> {\n    return this.httpClient.get<Session>(`${this.pathService}/${id}`);\n  }\n\n  public delete(id: string): Observable<any> {\n    return this.httpClient.delete(`${this.pathService}/${id}`);\n  }\n\n  public create(session: Session): Observable<Session> {\n    return this.httpClient.post<Session>(this.pathService, session);\n  }\n\n  public update(id: string, session: Session): Observable<Session> {\n    return this.httpClient.put<Session>(`${this.pathService}/${id}`, session);\n  }\n\n  public participate(id: string, userId: string): Observable<void> {\n    return this.httpClient.post<void>(`${this.pathService}/${id}/participate/${userId}`, null);\n  }\n\n  public unParticipate(id: string, userId: string): Observable<void> {\n    return this.httpClient.delete<void>(`${this.pathService}/${id}/participate/${userId}`);\n  }\n\n}\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "9103e769dde25a2d94df48588f2ef16673f4214c"
+    "hash": "501a7ad0635fd646d73130e71694ef6880d5ff99"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/services/teacher.service.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/services/teacher.service.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/services/teacher.service.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/services/teacher.service.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -9118,27 +9118,27 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 0,
-      "2": 0,
-      "3": 0,
+      "0": 12,
+      "1": 6,
+      "2": 6,
+      "3": 4,
       "4": 0,
-      "5": 1,
-      "6": 0,
-      "7": 1,
-      "8": 1
+      "5": 12,
+      "6": 6,
+      "7": 12,
+      "8": 12
     },
     "f": {
-      "0": 1,
-      "1": 0,
-      "2": 0,
+      "0": 12,
+      "1": 6,
+      "2": 4,
       "3": 0,
-      "4": 0
+      "4": 6
     },
     "b": {
       "0": [
-        0,
-        0
+        6,
+        6
       ]
     },
     "inputSourceMap": {
@@ -9159,17 +9159,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/services/teacher.service.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/services/teacher.service.ts"
       ],
       "sourcesContent": [
         "import { HttpClient } from '@angular/common/http';\nimport { Injectable } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { Teacher } from '../interfaces/teacher.interface';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class TeacherService {\n\n  private pathService = 'api/teacher';\n\n  constructor(private httpClient: HttpClient) { }\n\n  public all(): Observable<Teacher[]> {\n    return this.httpClient.get<Teacher[]>(this.pathService);\n  }\n\n  public detail(id: string): Observable<Teacher> {\n    return this.httpClient.get<Teacher>(`${this.pathService}/${id}`);\n  }\n}\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "adcc7f4ddfee9e3eeaa00c7fd772f768b0a2a6fc"
+    "hash": "8be40100acd17e994c636bfd6eb98f1dfe87111f"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/components/detail/detail.component.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/components/detail/detail.component.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/components/detail/detail.component.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/components/detail/detail.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -11973,19 +11973,19 @@
       }
     },
     "s": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
+      "0": 16,
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "4": 2,
+      "5": 2,
+      "6": 2,
+      "7": 2,
+      "8": 2,
+      "9": 2,
+      "10": 2,
+      "11": 2,
+      "12": 2,
       "13": 0,
       "14": 0,
       "15": 0,
@@ -12035,151 +12035,151 @@
       "59": 0,
       "60": 0,
       "61": 0,
-      "62": 0,
-      "63": 0,
-      "64": 0,
-      "65": 0,
+      "62": 16,
+      "63": 2,
+      "64": 2,
+      "65": 2,
       "66": 0,
       "67": 0,
       "68": 0,
-      "69": 0,
-      "70": 0,
-      "71": 0,
-      "72": 0,
-      "73": 0,
-      "74": 0,
-      "75": 0,
-      "76": 0,
-      "77": 0,
-      "78": 0,
-      "79": 0,
-      "80": 0,
-      "81": 0,
-      "82": 0,
-      "83": 0,
-      "84": 0,
-      "85": 0,
-      "86": 0,
-      "87": 0,
-      "88": 0,
-      "89": 0,
-      "90": 0,
-      "91": 0,
-      "92": 0,
-      "93": 0,
-      "94": 0,
-      "95": 0,
-      "96": 0,
-      "97": 0,
-      "98": 0,
-      "99": 0,
-      "100": 0,
-      "101": 0,
-      "102": 0,
-      "103": 0,
-      "104": 0,
-      "105": 0,
-      "106": 0,
-      "107": 0,
-      "108": 0,
-      "109": 0,
-      "110": 0,
-      "111": 0,
-      "112": 0,
-      "113": 0,
-      "114": 0,
-      "115": 0,
-      "116": 0,
-      "117": 0,
-      "118": 0,
-      "119": 0,
-      "120": 0,
-      "121": 0,
-      "122": 0,
-      "123": 0,
-      "124": 0,
-      "125": 0,
-      "126": 0,
-      "127": 0,
-      "128": 0,
-      "129": 0,
-      "130": 0,
-      "131": 0,
-      "132": 0,
-      "133": 0,
-      "134": 0,
-      "135": 1,
-      "136": 0,
-      "137": 0,
-      "138": 0,
-      "139": 0,
-      "140": 0,
-      "141": 0,
-      "142": 0,
-      "143": 0,
-      "144": 0,
-      "145": 0,
-      "146": 0,
-      "147": 0,
-      "148": 0,
+      "69": 2,
+      "70": 2,
+      "71": 2,
+      "72": 2,
+      "73": 2,
+      "74": 2,
+      "75": 2,
+      "76": 2,
+      "77": 2,
+      "78": 2,
+      "79": 2,
+      "80": 2,
+      "81": 2,
+      "82": 2,
+      "83": 2,
+      "84": 2,
+      "85": 2,
+      "86": 2,
+      "87": 2,
+      "88": 2,
+      "89": 2,
+      "90": 2,
+      "91": 2,
+      "92": 2,
+      "93": 2,
+      "94": 2,
+      "95": 2,
+      "96": 2,
+      "97": 2,
+      "98": 2,
+      "99": 2,
+      "100": 2,
+      "101": 2,
+      "102": 2,
+      "103": 2,
+      "104": 2,
+      "105": 2,
+      "106": 2,
+      "107": 2,
+      "108": 2,
+      "109": 2,
+      "110": 2,
+      "111": 2,
+      "112": 2,
+      "113": 2,
+      "114": 2,
+      "115": 16,
+      "116": 14,
+      "117": 14,
+      "118": 14,
+      "119": 14,
+      "120": 14,
+      "121": 14,
+      "122": 14,
+      "123": 14,
+      "124": 14,
+      "125": 14,
+      "126": 14,
+      "127": 14,
+      "128": 14,
+      "129": 14,
+      "130": 14,
+      "131": 14,
+      "132": 14,
+      "133": 14,
+      "134": 14,
+      "135": 12,
+      "136": 2,
+      "137": 2,
+      "138": 2,
+      "139": 2,
+      "140": 2,
+      "141": 2,
+      "142": 2,
+      "143": 2,
+      "144": 2,
+      "145": 2,
+      "146": 2,
+      "147": 2,
+      "148": 2,
       "149": 0,
-      "150": 0,
-      "151": 0,
-      "152": 0,
+      "150": 2,
+      "151": 2,
+      "152": 2,
       "153": 0,
       "154": 0,
       "155": 0,
       "156": 0,
-      "157": 0,
-      "158": 0,
-      "159": 0,
+      "157": 2,
+      "158": 2,
+      "159": 2,
       "160": 0,
-      "161": 0,
+      "161": 2,
       "162": 0,
-      "163": 1,
-      "164": 0,
-      "165": 1,
-      "166": 0,
-      "167": 0,
-      "168": 0,
-      "169": 0,
-      "170": 0,
-      "171": 0,
-      "172": 0,
-      "173": 1
+      "163": 12,
+      "164": 2,
+      "165": 12,
+      "166": 26,
+      "167": 2,
+      "168": 2,
+      "169": 2,
+      "170": 26,
+      "171": 24,
+      "172": 24,
+      "173": 12
     },
     "f": {
-      "0": 0,
-      "1": 0,
+      "0": 16,
+      "1": 2,
       "2": 0,
       "3": 0,
       "4": 0,
       "5": 0,
       "6": 0,
       "7": 0,
-      "8": 0,
+      "8": 16,
       "9": 0,
-      "10": 1,
-      "11": 0,
-      "12": 0,
+      "10": 12,
+      "11": 2,
+      "12": 2,
       "13": 0,
-      "14": 0,
-      "15": 0,
+      "14": 2,
+      "15": 2,
       "16": 0,
       "17": 0,
       "18": 0,
       "19": 0,
-      "20": 0,
-      "21": 0,
+      "20": 2,
+      "21": 2,
       "22": 0,
       "23": 0,
-      "24": 0,
-      "25": 0
+      "24": 2,
+      "25": 26
     },
     "b": {
       "0": [
-        0,
-        0
+        2,
+        14
       ],
       "1": [
         0,
@@ -12206,24 +12206,24 @@
         0
       ],
       "7": [
-        0,
-        0
+        2,
+        14
       ],
       "8": [
-        0,
-        0
+        14,
+        2
       ],
       "9": [
-        0,
-        0
+        2,
+        2
       ],
       "10": [
-        0,
-        0
+        2,
+        24
       ],
       "11": [
-        0,
-        0
+        24,
+        2
       ]
     },
     "inputSourceMap": {
@@ -12279,8 +12279,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/components/detail/detail.component.html",
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/components/detail/detail.component.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/components/detail/detail.component.html",
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/components/detail/detail.component.ts"
       ],
       "sourcesContent": [
         "<div class=\"m3\">\n  <mat-card *ngIf=\"session\">\n    <mat-card-title>\n      <div fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\n          <button mat-icon-button (click)=\"back()\">\n            <mat-icon>arrow_back</mat-icon>\n          </button>\n          <h1>{{session.name | titlecase}}</h1>\n        </div>\n        <div>\n          <button *ngIf=\"isAdmin\" mat-raised-button color=\"warn\" (click)=\"delete()\">\n            <mat-icon>delete</mat-icon>\n            <span class=\"ml1\">Delete</span>\n          </button>\n          <div *ngIf=\"!isAdmin\">\n            <button *ngIf=\"!isParticipate\" mat-raised-button color=\"primary\" (click)=\"participate()\">\n              <mat-icon>person_add</mat-icon>\n              <span class=\"ml1\">Participate</span>\n            </button>\n            <button *ngIf=\"isParticipate\" mat-raised-button color=\"warn\" (click)=\"unParticipate()\">\n              <mat-icon>person_remove</mat-icon>\n              <span class=\"ml1\">Do not participate</span>\n            </button>\n\n          </div>\n\n\n        </div>\n      </div>\n    </mat-card-title>\n    <mat-card-subtitle *ngIf=\"teacher\">\n      <div fxLayoutAlign=\"start center\" class=\"ml3\">\n        <mat-icon>\n          people\n        </mat-icon>\n        <span class=\"ml1\">{{ teacher.firstName }} {{ teacher.lastName | uppercase }}</span>\n      </div>\n    </mat-card-subtitle>\n    <div mat-card-image fxLayoutAlign=\"center center\">\n      <img class=\"picture\" src=\"assets/sessions.png\" alt=\"Yoga session\">\n    </div>\n    <mat-card-content>\n      <div class=\"my2\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\n        <div fxLayoutAlign=\"start center\">\n          <mat-icon>\n            group\n          </mat-icon>\n          <span class=\"ml1\">{{ session.users.length }} attendees</span>\n        </div>\n        <div fxLayoutAlign=\"start center\">\n          <mat-icon>\n            calendar_month\n          </mat-icon>\n          <span class=\"ml1\">{{ session.date | date: 'longDate'}}</span>\n        </div>\n      </div>\n      <div class=\"description\">\n        <p>Description:</p>\n        {{ session.description }}\n        <br>\n      </div>\n      <div class=\"date\" class=\"my2\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\n        <div class=\"created\"><i>Create at: </i> {{ session.createdAt| date: 'longDate'}}</div>\n        <div class=\"updated\"><i>Last update: </i> {{ session.updatedAt| date: 'longDate'}}</div>\n      </div>\n    </mat-card-content>\n  </mat-card>\n</div>\n",
@@ -12288,10 +12288,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "f0d20c7c130551c507257ed3c2bbc0ca2132923e"
+    "hash": "c32bcc4a07082649455f251516608c99b699dea2"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/components/form/form.component.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/components/form/form.component.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/components/form/form.component.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/components/form/form.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -14309,194 +14309,194 @@
       }
     },
     "s": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0,
-      "16": 0,
-      "17": 0,
-      "18": 0,
-      "19": 0,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
-      "25": 0,
-      "26": 0,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-      "32": 0,
-      "33": 0,
-      "34": 0,
-      "35": 0,
-      "36": 0,
-      "37": 0,
-      "38": 0,
-      "39": 0,
-      "40": 0,
-      "41": 0,
-      "42": 0,
-      "43": 0,
-      "44": 0,
-      "45": 0,
-      "46": 0,
-      "47": 0,
-      "48": 0,
-      "49": 0,
-      "50": 0,
-      "51": 0,
-      "52": 0,
-      "53": 0,
-      "54": 0,
-      "55": 0,
-      "56": 0,
-      "57": 1,
-      "58": 0,
-      "59": 0,
-      "60": 0,
-      "61": 0,
-      "62": 0,
-      "63": 0,
-      "64": 0,
-      "65": 0,
-      "66": 0,
-      "67": 0,
+      "0": 210,
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "4": 202,
+      "5": 2,
+      "6": 2,
+      "7": 2,
+      "8": 752,
+      "9": 8,
+      "10": 8,
+      "11": 8,
+      "12": 752,
+      "13": 744,
+      "14": 744,
+      "15": 744,
+      "16": 744,
+      "17": 402,
+      "18": 4,
+      "19": 4,
+      "20": 4,
+      "21": 4,
+      "22": 4,
+      "23": 4,
+      "24": 4,
+      "25": 4,
+      "26": 4,
+      "27": 4,
+      "28": 4,
+      "29": 4,
+      "30": 4,
+      "31": 4,
+      "32": 4,
+      "33": 4,
+      "34": 4,
+      "35": 4,
+      "36": 4,
+      "37": 4,
+      "38": 4,
+      "39": 4,
+      "40": 4,
+      "41": 4,
+      "42": 4,
+      "43": 4,
+      "44": 4,
+      "45": 4,
+      "46": 4,
+      "47": 4,
+      "48": 4,
+      "49": 402,
+      "50": 398,
+      "51": 398,
+      "52": 398,
+      "53": 398,
+      "54": 398,
+      "55": 398,
+      "56": 398,
+      "57": 12,
+      "58": 4,
+      "59": 4,
+      "60": 4,
+      "61": 4,
+      "62": 4,
+      "63": 4,
+      "64": 4,
+      "65": 4,
+      "66": 4,
+      "67": 4,
       "68": 0,
-      "69": 0,
-      "70": 0,
-      "71": 0,
-      "72": 0,
-      "73": 0,
-      "74": 0,
-      "75": 0,
-      "76": 0,
-      "77": 0,
-      "78": 0,
-      "79": 0,
-      "80": 0,
-      "81": 0,
-      "82": 0,
-      "83": 0,
-      "84": 0,
-      "85": 1,
-      "86": 0,
-      "87": 1,
-      "88": 0,
-      "89": 0,
-      "90": 0,
-      "91": 0,
-      "92": 0,
-      "93": 0,
-      "94": 0,
-      "95": 0,
-      "96": 0,
-      "97": 0,
-      "98": 0,
-      "99": 0,
-      "100": 0,
-      "101": 0,
-      "102": 0,
-      "103": 0,
-      "104": 1
+      "69": 4,
+      "70": 4,
+      "71": 2,
+      "72": 2,
+      "73": 2,
+      "74": 2,
+      "75": 2,
+      "76": 4,
+      "77": 4,
+      "78": 2,
+      "79": 2,
+      "80": 2,
+      "81": 2,
+      "82": 4,
+      "83": 4,
+      "84": 4,
+      "85": 12,
+      "86": 4,
+      "87": 12,
+      "88": 412,
+      "89": 4,
+      "90": 4,
+      "91": 4,
+      "92": 4,
+      "93": 4,
+      "94": 4,
+      "95": 4,
+      "96": 4,
+      "97": 412,
+      "98": 408,
+      "99": 408,
+      "100": 408,
+      "101": 408,
+      "102": 408,
+      "103": 408,
+      "104": 12
     },
     "f": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 1,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0
+      "0": 210,
+      "1": 202,
+      "2": 752,
+      "3": 402,
+      "4": 4,
+      "5": 12,
+      "6": 4,
+      "7": 4,
+      "8": 2,
+      "9": 4,
+      "10": 2,
+      "11": 2,
+      "12": 4,
+      "13": 4,
+      "14": 4,
+      "15": 412
     },
     "b": {
       "0": [
-        0,
-        0
+        2,
+        208
       ],
       "1": [
-        0,
-        0
+        2,
+        200
       ],
       "2": [
-        0,
-        0
+        8,
+        744
       ],
       "3": [
-        0,
-        0
+        744,
+        8
       ],
       "4": [
-        0,
-        0
+        4,
+        398
       ],
       "5": [
-        0,
-        0
+        398,
+        4
       ],
       "6": [
         0,
-        0
+        4
       ],
       "7": [
-        0,
-        0
+        2,
+        2
       ],
       "8": [
-        0,
-        0
+        2,
+        2
       ],
       "9": [
-        0,
-        0
+        2,
+        2
       ],
       "10": [
-        0,
-        0
+        2,
+        2
       ],
       "11": [
-        0,
-        0
+        2,
+        2
       ],
       "12": [
-        0,
-        0
+        2,
+        2
       ],
       "13": [
-        0,
-        0
+        4,
+        4
       ],
       "14": [
-        0,
-        0
+        4,
+        408
       ],
       "15": [
-        0,
-        0
+        408,
+        4
       ]
     },
     "inputSourceMap": {
@@ -14558,8 +14558,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/components/form/form.component.ts",
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/components/form/form.component.html"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/components/form/form.component.ts",
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/components/form/form.component.html"
       ],
       "sourcesContent": [
         "import { Component, OnInit } from '@angular/core';\nimport { FormBuilder, FormGroup, Validators } from '@angular/forms';\nimport { MatSnackBar } from '@angular/material/snack-bar';\nimport { ActivatedRoute, Router } from '@angular/router';\nimport { SessionService } from '../../../../services/session.service';\nimport { TeacherService } from '../../../../services/teacher.service';\nimport { Session } from '../../interfaces/session.interface';\nimport { SessionApiService } from '../../services/session-api.service';\n\n@Component({\n  selector: 'app-form',\n  templateUrl: './form.component.html',\n  styleUrls: ['./form.component.scss']\n})\nexport class FormComponent implements OnInit {\n\n  public onUpdate: boolean = false;\n  public sessionForm: FormGroup | undefined;\n  public teachers$ = this.teacherService.all();\n  private id: string | undefined;\n\n  constructor(\n    private route: ActivatedRoute,\n    private fb: FormBuilder,\n    private matSnackBar: MatSnackBar,\n    private sessionApiService: SessionApiService,\n    private sessionService: SessionService,\n    private teacherService: TeacherService,\n    private router: Router\n  ) {\n  }\n\n  public ngOnInit(): void {\n    if (!this.sessionService.sessionInformation!.admin) {\n      this.router.navigate(['/sessions']);\n    }\n    const url = this.router.url;\n    if (url.includes('update')) {\n      this.onUpdate = true;\n      this.id = this.route.snapshot.paramMap.get('id')!;\n      this.sessionApiService\n        .detail(this.id)\n        .subscribe((session: Session) => this.initForm(session));\n    } else {\n      this.initForm();\n    }\n  }\n\n  public submit(): void {\n    const session = this.sessionForm?.value as Session;\n\n    if (!this.onUpdate) {\n      this.sessionApiService\n        .create(session)\n        .subscribe((_: Session) => this.exitPage('Session created !'));\n    } else {\n      this.sessionApiService\n        .update(this.id!, session)\n        .subscribe((_: Session) => this.exitPage('Session updated !'));\n    }\n  }\n\n  private initForm(session?: Session): void {\n    this.sessionForm = this.fb.group({\n      name: [\n        session ? session.name : '',\n        [Validators.required]\n      ],\n      date: [\n        session ? new Date(session.date).toISOString().split('T')[0] : '',\n        [Validators.required]\n      ],\n      teacher_id: [\n        session ? session.teacher_id : '',\n        [Validators.required]\n      ],\n      description: [\n        session ? session.description : '',\n        [\n          Validators.required,\n          Validators.max(2000)\n        ]\n      ],\n    });\n  }\n\n  private exitPage(message: string): void {\n    this.matSnackBar.open(message, 'Close', { duration: 3000 });\n    this.router.navigate(['sessions']);\n  }\n}\n",
@@ -14567,10 +14567,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "37171c59a15ca2a67b43f8b383d9c2c5c7a2569a"
+    "hash": "a6aa9747c146f4efe872b9bdd3f2fb0fdaccaedd"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/components/list/list.component.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/components/list/list.component.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/components/list/list.component.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/components/list/list.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -15906,131 +15906,131 @@
       }
     },
     "s": {
-      "0": 9,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0,
-      "16": 0,
-      "17": 0,
-      "18": 0,
-      "19": 1,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
-      "25": 0,
-      "26": 0,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-      "32": 0,
-      "33": 0,
-      "34": 0,
-      "35": 0,
-      "36": 0,
-      "37": 0,
-      "38": 0,
-      "39": 0,
-      "40": 0,
-      "41": 0,
-      "42": 0,
-      "43": 0,
-      "44": 0,
-      "45": 0,
-      "46": 0,
-      "47": 0,
-      "48": 0,
-      "49": 0,
-      "50": 0,
-      "51": 0,
-      "52": 0,
-      "53": 0,
-      "54": 0,
-      "55": 0,
-      "56": 1,
-      "57": 1,
-      "58": 1,
-      "59": 1,
-      "60": 8,
-      "61": 1,
-      "62": 1,
-      "63": 1,
-      "64": 9,
-      "65": 1,
-      "66": 1,
-      "67": 1,
-      "68": 1,
-      "69": 1,
-      "70": 1,
-      "71": 1,
-      "72": 1,
-      "73": 1,
-      "74": 9,
-      "75": 8,
-      "76": 8,
-      "77": 8,
-      "78": 8,
-      "79": 1
+      "0": 146,
+      "1": 16,
+      "2": 16,
+      "3": 16,
+      "4": 16,
+      "5": 16,
+      "6": 16,
+      "7": 12,
+      "8": 10,
+      "9": 30,
+      "10": 10,
+      "11": 10,
+      "12": 10,
+      "13": 10,
+      "14": 10,
+      "15": 10,
+      "16": 30,
+      "17": 20,
+      "18": 20,
+      "19": 12,
+      "20": 10,
+      "21": 30,
+      "22": 10,
+      "23": 10,
+      "24": 10,
+      "25": 10,
+      "26": 10,
+      "27": 10,
+      "28": 10,
+      "29": 10,
+      "30": 10,
+      "31": 10,
+      "32": 10,
+      "33": 10,
+      "34": 10,
+      "35": 10,
+      "36": 10,
+      "37": 10,
+      "38": 10,
+      "39": 10,
+      "40": 10,
+      "41": 10,
+      "42": 10,
+      "43": 30,
+      "44": 20,
+      "45": 20,
+      "46": 20,
+      "47": 20,
+      "48": 20,
+      "49": 20,
+      "50": 20,
+      "51": 20,
+      "52": 20,
+      "53": 20,
+      "54": 20,
+      "55": 20,
+      "56": 12,
+      "57": 18,
+      "58": 18,
+      "59": 18,
+      "60": 166,
+      "61": 12,
+      "62": 18,
+      "63": 12,
+      "64": 164,
+      "65": 18,
+      "66": 18,
+      "67": 18,
+      "68": 18,
+      "69": 18,
+      "70": 18,
+      "71": 18,
+      "72": 18,
+      "73": 18,
+      "74": 164,
+      "75": 146,
+      "76": 146,
+      "77": 146,
+      "78": 146,
+      "79": 12
     },
     "f": {
-      "0": 9,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 1,
-      "6": 1,
-      "7": 8,
-      "8": 1,
-      "9": 9
+      "0": 146,
+      "1": 10,
+      "2": 30,
+      "3": 10,
+      "4": 30,
+      "5": 12,
+      "6": 18,
+      "7": 166,
+      "8": 18,
+      "9": 164
     },
     "b": {
       "0": [
-        1,
-        8
+        16,
+        130
       ],
       "1": [
-        0,
-        0
+        10,
+        20
       ],
       "2": [
-        0,
-        0
+        20,
+        10
       ],
       "3": [
-        0,
-        0
+        10,
+        20
       ],
       "4": [
-        0,
-        0
+        20,
+        10
       ],
       "5": [
-        1,
-        1
+        18,
+        18
       ],
       "6": [
-        1,
-        8
+        18,
+        146
       ],
       "7": [
-        8,
-        1
+        146,
+        18
       ]
     },
     "inputSourceMap": {
@@ -16053,8 +16053,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/components/list/list.component.html",
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/components/list/list.component.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/components/list/list.component.html",
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/components/list/list.component.ts"
       ],
       "sourcesContent": [
         "<div class=\"list\">\n  <mat-card>\n    <mat-card-header fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\n      <mat-card-title class=\"m0\">Rentals available</mat-card-title>\n      <button *ngIf=\"user!.admin\" mat-raised-button color=\"primary\" routerLink=\"create\">\n        <mat-icon>add</mat-icon>\n        <span class=\"ml1\">Create</span>\n      </button>\n    </mat-card-header>\n    <div class=\"items mt2\" fxLayout=\"row wrap\" fxLayout.lt-md=\"column\">\n      <mat-card class=\"item\" *ngFor=\"let session of (sessions$ | async)\" fxFlex>\n        <mat-card-header>\n          <mat-card-title>{{ session.name }}</mat-card-title>\n          <mat-card-subtitle>\n            Session on {{ session.date | date: 'longDate'}}\n          </mat-card-subtitle>\n        </mat-card-header>\n        <div mat-card-image fxLayoutAlign=\"center center\">\n          <img class=\"picture\" src=\"assets/sessions.png\" alt=\"Yoga session\">\n        </div>\n        <mat-card-content>\n          <p>\n            {{ session.description }}\n          </p>\n        </mat-card-content>\n        <mat-card-actions>\n          <button mat-raised-button color=\"primary\" [routerLink]=\"['detail',session.id]\">\n            <mat-icon>search</mat-icon>\n            <span class=\"ml1\">Detail</span>\n          </button>\n          <button *ngIf=\"user!.admin\" mat-raised-button color=\"primary\"\n                  [routerLink]=\"['update',session.id]\">\n            <mat-icon>edit</mat-icon>\n            <span class=\"ml1\">Edit</span>\n          </button>\n        </mat-card-actions>\n      </mat-card>\n    </div>\n  </mat-card>\n</div>\n",
@@ -16062,10 +16062,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "7125aa024c70db8dd6a64ac62144c1343f81c8ea"
+    "hash": "48cd8eca5e893a908c33a87bd2c2361e8bf8e40e"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/sessions-routing.module.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/sessions-routing.module.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/sessions-routing.module.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/sessions-routing.module.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -16227,22 +16227,22 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1
+      "0": 12,
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12,
+      "5": 12,
+      "6": 12
     },
     "f": {
-      "0": 1,
-      "1": 1
+      "0": 12,
+      "1": 12
     },
     "b": {
       "0": [
-        1,
-        1
+        12,
+        12
       ]
     },
     "inputSourceMap": {
@@ -16262,17 +16262,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/sessions-routing.module.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/sessions-routing.module.ts"
       ],
       "sourcesContent": [
         "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\nimport { DetailComponent } from './components/detail/detail.component';\nimport { FormComponent } from './components/form/form.component';\nimport { ListComponent } from './components/list/list.component';\n\nconst routes: Routes = [\n  { path: '', title: 'Sessions', component: ListComponent },\n  { path: 'detail/:id', title: 'Sessions - detail', component: DetailComponent },\n  { path: 'create', title: 'Sessions - create', component: FormComponent },\n  { path: 'update/:id', title: 'Sessions - update', component: FormComponent }\n];\n\n@NgModule({\n  imports: [RouterModule.forChild(routes)],\n  exports: [RouterModule]\n})\nexport class SessionsRoutingModule {\n}\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "34cfbd0b9cde81f98c249734ef984cd260d86610"
+    "hash": "b1d9fe9843f38ab6cb8df96215bab8f4b8b899a8"
   },
-  "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/sessions.module.ts": {
-    "path": "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/sessions.module.ts",
+  "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/sessions.module.ts": {
+    "path": "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/sessions.module.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -16444,23 +16444,23 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1
+      "0": 12,
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12,
+      "5": 12,
+      "6": 12,
+      "7": 12
     },
     "f": {
-      "0": 1,
-      "1": 1
+      "0": 12,
+      "1": 12
     },
     "b": {
       "0": [
-        1,
-        1
+        12,
+        12
       ]
     },
     "inputSourceMap": {
@@ -16485,13 +16485,13 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "/Users/balde/OC_Projects/Projet5VF/front/src/app/features/sessions/sessions.module.ts"
+        "/Users/balde/OC_Projects/Projet5VF/Testez-une-application-full-stack/front/src/app/features/sessions/sessions.module.ts"
       ],
       "sourcesContent": [
         "import { NgModule } from '@angular/core';\nimport { CommonModule, registerLocaleData } from '@angular/common';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { ReactiveFormsModule } from '@angular/forms';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatCardModule } from '@angular/material/card';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatIconModule } from '@angular/material/icon';\nimport { MatInputModule } from '@angular/material/input';\nimport { MatSelectModule } from '@angular/material/select';\nimport { MatSnackBarModule } from '@angular/material/snack-bar';\nimport { ListComponent } from './components/list/list.component';\nimport { FormComponent } from './components/form/form.component';\nimport { DetailComponent } from './components/detail/detail.component';\nimport { SessionsRoutingModule } from './sessions-routing.module';\nimport localeFr from '@angular/common/locales/fr';\nregisterLocaleData(localeFr);\n\nconst materialModules = [\n  MatButtonModule,\n  MatCardModule,\n  MatFormFieldModule,\n  MatIconModule,\n  MatInputModule,\n  MatSnackBarModule,\n  MatSelectModule\n];\n\n@NgModule({\n  declarations: [\n    ListComponent,\n    FormComponent,\n    DetailComponent\n  ],\n  imports: [\n    CommonModule,\n    FlexLayoutModule,\n    ReactiveFormsModule,\n    SessionsRoutingModule,\n    ...materialModules\n  ]\n})\nexport class SessionsModule { }\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "801acd9f793f2f7208fa179477f32e85ed0153d4"
+    "hash": "e507c52837ba43a4958e56b1507abcea615ca091"
   }
 }
